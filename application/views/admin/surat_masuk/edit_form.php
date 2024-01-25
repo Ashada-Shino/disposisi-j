@@ -8,7 +8,8 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                <form action="<?php echo site_url('admin/surat_masuk/edit') ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo site_url('admin/surat_masuk/edit') ?>" method="post"
+                    enctype="multipart/form-data">
                     <div class="mb-3">
                         <label>NO SURAT MASUK <code>*</code></label>
                         <input class="form-control" type="hidden" name="id" value="<?= $surat->id; ?>" required />
@@ -52,8 +53,8 @@
                                 <?= $surat->image; ?></h5>
                         </div>
                         <div class="card-body">
-                            <img src="<?php echo base_url(); ?>assets/photo/surat_masuk/<?php echo $surat->image; ?>" class="card-img"
-                                width='500'>
+                            <img src="<?php echo base_url(); ?>assets/photo/surat_masuk/<?php echo $surat->image; ?>"
+                                class="card-img" width='500'>
                         </div>
                     </div>
                     <div class="mb-3">
