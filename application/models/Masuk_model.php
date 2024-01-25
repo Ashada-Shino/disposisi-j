@@ -57,7 +57,7 @@ class Masuk_model extends CI_Model
             'image' => $updateimage,
             'is_active' => '1',
         ];
-        return $this->db->set($data)->where($this->primary, $id)-> update($this->_table);
+        return $this->db->set($data)->where($this->primary, $id)->update($this->_table);
 
     }
     //simpan gambar
@@ -97,6 +97,22 @@ class Masuk_model extends CI_Model
                 glob(FCPATH . "assets/photo/surat_masuk/$filename.*")
             );
         }
+    }
+    public function saveAjuan()
+    {
+        $data = [
+            'no_surat' => $this->input->post('no_surat'),
+            'tgl_surat' => $this->input->post('tgl_surat'),
+            'surat_from' => $this->input->post('surat_from'),
+            'surat_to' => $this->input->post('surat_to'),
+            'tgl_terima' => '0000-00-00',
+            'perihal' => $this->input->post('perihal'),
+            'keterangan' => $this->input->post('keterangan'),
+            'image' => $this->do_upload(),
+            'user_id' => $this->session->userdata('id'),
+            'is_active' => '1',
+        ];
+        $this->db->insert($this->_table, $data);
     }
 
 }
